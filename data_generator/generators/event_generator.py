@@ -1,7 +1,8 @@
 import random
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta
 
 class EventGenerator:
+
     def __init__(self):
         self.event_counter = 0
 
@@ -11,11 +12,11 @@ class EventGenerator:
 
     def generate_event_time(self, base_date):
         seconds = random.randint(0, 86400)
-        return (base_date + timedelta(seconds)).isoformat()
-    
+        return (base_date + timedelta(seconds=seconds)).isoformat()
+
     def get_species_capability(self, species):
-        return f"{species["rarity"]}_{species["species_type"]}"
-    
+        return f"{species['rarity']}_{species['species_type']}"
+
     def get_valid_ids(self, species_cap, mapping, id_key):
         base_type = species_cap.split("_")[-1]
 
@@ -24,16 +25,15 @@ class EventGenerator:
             for m in mapping
             if m["capability"] == species_cap or m["capability"] == base_type
         ]
-    
+
     def pick_rod(self, species_cap, rods, rod_capability):
         valid_ids = self.get_valid_ids(species_cap, rod_capability, "rod_id")
         valid_rods = [r for r in rods if r["rod_id"] in valid_ids]
 
         if valid_rods and random.random() < 0.8:
             return random.choice(valid_rods)
-        
-        return random.choice(rods)
 
+        return random.choice(rods)
 
     def pick_bait(self, species_cap, baits, bait_capability):
         valid_ids = self.get_valid_ids(species_cap, bait_capability, "bait_id")
@@ -41,27 +41,38 @@ class EventGenerator:
 
         if not valid_baits or random.random() < 0.3:
             return None
-        
+
         return random.choice(valid_baits)
-    
 
-    def generate_events(self, players, species_data, rods, rod_capability, baits, bait_capability, num_events, base_date):
-
-        species = random.choice(species_data)
-        player = random.choice(players)
-
-        species_cap = self.get_species_capability(species)
-
-        rod = self.pick_rod(species_cap, rods, rod_capability)
-        bait = self.pick_bait(species_cap, baits, bait_capability)
+    def generate_events(
+        self,
+        players,
+        species_data,
+        rods,
+        rod_capability,
+        baits,
+        bait_capability,
+        num_events,
+        base_date
+    ):
 
         events = []
 
-        success = True
-        if rod is None:
-            success = False
-
         for _ in range(num_events):
+
+            player = random.choice(players)
+            species = random.choice(species_data)
+
+            species_cap = self.get_species_capability(species)
+
+            rod = self.pick_rod(species_cap, rods, rod_capability)
+            bait = self.pick_bait(species_cap, baits, bait_capability)
+
+            # success logic
+            success = True
+            if rod is None:
+                success = False
+
             events.append({
                 "event_id": self.generate_event_id(),
                 "player_id": player["player_id"],
@@ -74,9 +85,7 @@ class EventGenerator:
                 "weight": species["min_weight"],
                 "price": species["base_price"],
                 "success_flag": success,
-                "created_at": datetime.now(timezone.utc).isoformat()
+                "created_at": datetime.utcnow().isoformat()
             })
-        
+
         return events
-    
-    
