@@ -1,0 +1,3 @@
+data_generator/output/
+__pycache__/
+.env
