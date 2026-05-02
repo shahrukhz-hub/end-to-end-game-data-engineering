@@ -39,9 +39,12 @@ class EventGenerator:
         valid_ids = self.get_valid_ids(species_cap, bait_capability, "bait_id")
         valid_baits = [b for b in baits if b["bait_id"] in valid_ids]
 
-        if not valid_baits or random.random() < 0.3:
+        if not valid_baits:
+            return random.choice(baits) if baits else None
+        
+        if random.random() < 0.2:
             return None
-
+        
         return random.choice(valid_baits)
 
     def generate_events(
