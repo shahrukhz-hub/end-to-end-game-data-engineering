@@ -27,7 +27,7 @@ baits, bait_cap = equip_gen.generate_baits(bait_data)
 # writer.write(rod_cap, "data_generator/output/equipments/rod_capability.csv")
 # writer.write(baits, "data_generator/output/equipments/baits.csv")
 # writer.write(bait_cap, "data_generator/output/equipments/bait_capability.csv")
-
+# writer.write(maps_data, "data_generator/output/maps/maps.csv")
 
 start_date = datetime(2026, 4, 1)
 num_days = 5
@@ -43,7 +43,7 @@ for i in range(num_days):
 
     folder_path = os.path.join(base_output_path, f"date={current_date.date()}")
 
-    file_path = os.path.join(base_output_path,f"{current_date.date()}-events.csv")
+    file_path = os.path.join(folder_path, "events.csv")
 
     writer.write(events, file_path)
 
