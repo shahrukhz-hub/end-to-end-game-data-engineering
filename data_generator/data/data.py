@@ -1057,3 +1057,87 @@ bait_data = [
         "level_requirement": "NOAH_50_PERCENT"
     }
 ]
+
+maps_data = [
+    {
+        "map_id": "MAP-01",
+        "map_name": "Home Island",
+        "level_requirement": 1,
+        "unlock_cost": 0,
+        "cost_per_trip": 0,
+        "is_unlocked_default": True,
+        "access_type": "free"
+    },
+    {
+        "map_id": "MAP-02",
+        "map_name": "Paradise Island",
+        "level_requirement": 1,
+        "unlock_cost": 0,
+        "cost_per_trip": 100,
+        "is_unlocked_default": True,
+        "access_type": "coins"
+    },
+    {
+        "map_id": "MAP-03",
+        "map_name": "Great Lakes",
+        "level_requirement": 2,
+        "unlock_cost": 2000,
+        "cost_per_trip": 100,
+        "is_unlocked_default": False,
+        "access_type": "coins"
+    },
+    {
+        "map_id": "MAP-04",
+        "map_name": "Costa Rica",
+        "level_requirement": 3,
+        "unlock_cost": 5000,
+        "cost_per_trip": 150,
+        "is_unlocked_default": False,
+        "access_type": "coins"
+    },
+    {
+        "map_id": "MAP-05",
+        "map_name": "Alaska",
+        "level_requirement": 4,
+        "unlock_cost": 15000,
+        "cost_per_trip": 200,
+        "is_unlocked_default": False,
+        "access_type": "coins"
+    },
+    {
+        "map_id": "MAP-06",
+        "map_name": "Australia",
+        "level_requirement": 5,
+        "unlock_cost": 20000,
+        "cost_per_trip": 200,
+        "is_unlocked_default": False,
+        "access_type": "coins"
+    },
+    {
+        "map_id": "MAP-07",
+        "map_name": "Scotland",
+        "level_requirement": 6,
+        "unlock_cost": 35000,
+        "cost_per_trip": 250,
+        "is_unlocked_default": False,
+        "access_type": "coins"
+    },
+    {
+        "map_id": "MAP-08",
+        "map_name": "Thailand",
+        "level_requirement": 7,
+        "unlock_cost": 50000,
+        "cost_per_trip": 300,
+        "is_unlocked_default": False,
+        "access_type": "coins"
+    },
+    {
+        "map_id": "MAP-09",
+        "map_name": "Amazon",
+        "level_requirement": 8,
+        "unlock_cost": 70000,
+        "cost_per_trip": 300,
+        "is_unlocked_default": False,
+        "access_type": "coins"
+    }
+]
