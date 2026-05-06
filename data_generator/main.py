@@ -21,13 +21,13 @@ rods, rod_cap = equip_gen.generate_rods(rod_data)
 baits, bait_cap = equip_gen.generate_baits(bait_data)
 
 # write
-# writer.write(species, "data_generator/output/species/species.csv")
-# writer.write(players, "data_generator/output/players/players.csv")
-# writer.write(rods, "data_generator/output/equipments/rods.csv")
-# writer.write(rod_cap, "data_generator/output/equipments/rod_capability.csv")
-# writer.write(baits, "data_generator/output/equipments/baits.csv")
-# writer.write(bait_cap, "data_generator/output/equipments/bait_capability.csv")
-# writer.write(maps_data, "data_generator/output/maps/maps.csv")
+writer.write(species, "data_generator/output/species/species.csv")
+writer.write(players, "data_generator/output/players/players.csv")
+writer.write(rods, "data_generator/output/equipments/rods.csv")
+writer.write(rod_cap, "data_generator/output/equipments/rod_capability.csv")
+writer.write(baits, "data_generator/output/equipments/baits.csv")
+writer.write(bait_cap, "data_generator/output/equipments/bait_capability.csv")
+writer.write(maps_data, "data_generator/output/maps/maps.csv")
 
 start_date = datetime(2026, 4, 1)
 num_days = 5
