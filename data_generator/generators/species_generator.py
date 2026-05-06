@@ -101,7 +101,7 @@ class SpeciesGenerator:
             length = random.randint(1, max_length)
             end = start + length - 1
 
-            return f"{months[start]}–{months[end]}"
+            return f"{months[start]}-{months[end]}"
 
     def generate_species_id(self, map_id, species_type):
         species_type = species_type.upper()
